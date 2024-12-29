@@ -58,7 +58,6 @@ def display_banner():
         )
     )
 
-
 def display_queries(queries):
     """Displays generated search queries in an animated tree view."""
     tree = Tree("🔍 [bold blue]Generated Search Queries[/bold blue]", guide_style="bold blue")
@@ -173,18 +172,6 @@ def main():
     all_summaries = []
     used_urls = []
 
-    # Create a single Progress instance for all tasks
-    with Progress(
-        "[progress.description]{task.description}",
-        SpinnerColumn(style="#66BB6A"),  # Green spinner
-        BarColumn(style="#66BB6A", complete_style="#66BB6A"),  # Green bar
-        TextColumn("[progress.percentage]{task.percentage:>3.1f}%"),
-        TimeElapsedColumn(),
-        console=console,
-        transient=False  # Keep the progress display after completion
-    ) as progress:
-        query_task = progress.add_task("Processing queries", total=len(search_queries))
-
     for query in search_queries:
         # 2. Web Search
         urls = perform_web_search(query)
@@ -192,22 +179,12 @@ def main():
 
         # 3. Content Extraction & 4. Summarization
         for url in urls:
-            # Create a new task for each URL summary
-            url_task = progress.add_task(f"  Processing URL: {url}", total=1)
             content = extract_content(url)
             summary = generate_summary(content, summarization_model)
             all_summaries.append(summary)
             used_urls.append(url)
             display_summary(url, summary)
-
-            # Complete and remove the task for this URL
-            progress.update(url_task, advance=1)
-            progress.remove_task(url_task)
             time.sleep(DELAY_SECONDS)
-
-        # Update the `query_task` after all URLs for the query are processed
-        progress.update(query_task, advance=1)
-        progress.remove_task(query_task)
 
     # 5. Response Generation
     final_report = generate_final_answer(all_summaries, user_query, response_generation_model)
