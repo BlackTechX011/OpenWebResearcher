@@ -159,4 +159,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ### 🚀 **Let Open Web Researcher transform your research process!**  
 
-Let me know if you'd like further customization, additional visuals, or specific diagrams added!
+
