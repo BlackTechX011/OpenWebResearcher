@@ -28,21 +28,25 @@
 
 ---
 
-## 🌟 **Features**  
+## 🌟 **Key Features**  
 
-#### 🚀 Automated Web Research  
-Effortlessly perform comprehensive web searches based on your queries.  
-#### 🧠 Intelligent Query Refinement  
-Expand your query into relevant subtopics for a holistic understanding.  
-#### ✂️ Content Extraction  
-Eliminate noise by extracting only the most relevant information.  
-#### 🤖 AI-Powered Summarization  
-Get summaries of complex topics, tailored for quick understanding.  
-#### 📝 Final Report Generation  
-Receive structured, insightful reports addressing your questions.  
-#### 💾 Markdown Export  
-Easily shareable and readable Markdown reports for all your needs.  
+### 🚀 **Automated Web Research**  
+Perform in-depth, efficient web searches tailored to your queries.  
 
+### 📊 **Highly Detailed Report Generation**  
+Generate comprehensive, structured, and insightful reports effortlessly.  
+
+### 🔍 **Deep Dive into Any Topic**  
+Unlock a profound understanding of complex subjects with expert-level analysis.  
+
+### 💾 **Markdown Export**  
+Create shareable, easy-to-read Markdown reports perfect for collaboration and presentation.  
+
+### 💡 **The Best Free, Open-Source Alternative**  
+A superior, cost-free alternative to tools like SearchGPT and Perplexity.  
+
+### 🎯 **...And More!**  
+Packed with additional features to revolutionize your web research experience.  
 
 ---
 
