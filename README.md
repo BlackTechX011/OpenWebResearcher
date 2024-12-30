@@ -69,7 +69,9 @@ Update `config/settings.py` with your API keys:
 # --- Configuration ---  
 API_KEYS = ["YOUR_FIRST_API_KEY", "YOUR_SECOND_API_KEY"]  
 FINAL_REPORT_MODEL_API_KEY = "YOUR_FINAL_REPORT_API_KEY"  
-```  
+```
+> [!NOTE]
+> You can get your API keys from [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
 
 ---
 
