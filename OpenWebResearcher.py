@@ -8,6 +8,7 @@ from models.gemini import GeminiModel
 from prompts.query_refinement import query_refinement_prompt
 from prompts.response_generation import response_generation_prompt
 from utils.file_utils import save_report_to_markdown
+import re
 from rich import print
 from rich.console import Console
 from rich.table import Table
@@ -112,7 +113,7 @@ def display_summary(url, summary):
     print("\n")
 
 def generate_search_queries(user_query, model):
-    """Generates related search queries with a progress indicator."""
+    """Generates related search queries with a progress indicator and extracts them from <sum> tag."""
     with Progress(
         SpinnerColumn(style="#66BB6A"),  # Green spinner
         *Progress.get_default_columns(),
@@ -121,7 +122,15 @@ def generate_search_queries(user_query, model):
     ) as progress:
         progress.add_task("[blue]Generating search queries...", total=None)
         response = model.generate_content(f"{query_refinement_prompt}\n\nUser Query: {user_query}")
-        queries = response.text.strip().split('\n')
+
+        # Extract content within the <sum> tag using regular expressions
+        match = re.search(r"<sum>(.*?)</sum>", response.text, re.DOTALL)
+        if match:
+            queries_text = match.group(1).strip()
+            queries = queries_text.split('\n')
+        else:
+            queries = []  # Return empty list if <sum> tag is not found
+    
     return queries
 
 def generate_final_answer(summaries, user_query, model):
